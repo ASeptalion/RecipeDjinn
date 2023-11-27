@@ -16,7 +16,7 @@ function SlideShow() {
   }
   
   slides[slidePosition-1].style.display = "block";
-  setTimeout(SlideShow, 5000); // Change image every 2 seconds
+  setTimeout(SlideShow, 5000); // Change image every 5 seconds
 }
 
 function navigateToPage(page) {
@@ -25,3 +25,6 @@ function navigateToPage(page) {
 
 // Call the SlideShow function to start the rotation
 SlideShow();
+
+
+//Authored by Antonio Torpea (Group members name here)
