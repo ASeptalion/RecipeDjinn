@@ -1,30 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const recipeForm = document.getElementById('recipe-form');
-    const recipesSection = document.getElementById('recipes');
 
-    recipeForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+var slidePosition = 0;
 
-        const recipeName = document.getElementById('recipe-name').value;
-        const ingredients = document.getElementById('ingredients').value;
-        const instructions = document.getElementById('instructions').value;
+function SlideShow() {
+  var i;
+  var slides = document.getElementsByClassName("Containers");
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  
+  slidePosition++;
+  
+  if (slidePosition > slides.length) {
+    slidePosition = 1;
+  }
+  
+  slides[slidePosition-1].style.display = "block";
+  setTimeout(SlideShow, 5000); // Change image every 2 seconds
+}
 
-        displayRecipe(recipeName, ingredients, instructions);
+function navigateToPage(page) {
+  window.location.href = page;
+}
 
-        // Clear the form fields after submission
-        recipeForm.reset();
-    });
-
-    function displayRecipe(name, ingredients, instructions) {
-        const recipeCard = document.createElement('div');
-        recipeCard.classList.add('recipe-card');
-
-        recipeCard.innerHTML = `
-            <h3>${name}</h3>
-            <p><strong>Ingredients:</strong> ${ingredients}</p>
-            <p><strong>Instructions:</strong> ${instructions}</p>
-        `;
-
-        recipesSection.appendChild(recipeCard);
-    }
-});
+// Call the SlideShow function to start the rotation
+SlideShow();
