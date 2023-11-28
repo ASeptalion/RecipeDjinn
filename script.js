@@ -27,4 +27,4 @@ function navigateToPage(page) {
 SlideShow();
 
 
-//Authored by Antonio Torpea (Group members name here)
+//Authored by Antonio Torpea Adam Bowles (Group members name here)
