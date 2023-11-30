@@ -1,30 +1,44 @@
+var slideIndex = 1;
 
-var slidePosition = 0;
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-function SlideShow() {
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("Containers");
+  var dots = document.getElementsByClassName("dots");
+  
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
   
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
   
-  slidePosition++;
-  
-  if (slidePosition > slides.length) {
-    slidePosition = 1;
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
   }
   
-  slides[slidePosition-1].style.display = "block";
-  setTimeout(SlideShow, 5000); // Change image every 5 seconds
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
 
-function navigateToPage(page) {
-  window.location.href = page;
-}
+// Call the showSlides function to initialize the slideshow
+showSlides(slideIndex);
 
-// Call the SlideShow function to start the rotation
-SlideShow();
-
+// Auto cycle through slides every x seconds
+setInterval(function () {
+  plusSlides(1);
+}, 5000);
 
 //Authored by Antonio Torpea Adam Bowles (Group members name here)
