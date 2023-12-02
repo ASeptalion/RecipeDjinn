@@ -33,6 +33,10 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
+function navigateToPage(page) {
+  window.location.href = page;
+}
+
 // Call the showSlides function to initialize the slideshow
 showSlides(slideIndex);
 
